@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.adoyo.stagelighting.presentation.HomeScreen
 import com.adoyo.stagelighting.presentation.TopAppBar
 import com.adoyo.stagelighting.ui.theme.StageLightingTheme
 
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    TopAppBar()
+                    HomeScreen()
                 }
             }
         }
