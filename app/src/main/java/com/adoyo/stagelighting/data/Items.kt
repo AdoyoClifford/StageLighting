@@ -71,3 +71,10 @@ enum class Category(val label: String) {
     SPECIAL_EFFECTS("Special Effects")
 }
 
+sealed class Tab{
+    object Home: Tab()
+    object Add: Tab()
+    object Chat: Tab()
+    object Profile: Tab()
+}
+
