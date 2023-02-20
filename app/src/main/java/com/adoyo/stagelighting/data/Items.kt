@@ -20,7 +20,7 @@ val allItems = listOf(
         name = "Fog Machine",
         category = Category.SPECIAL_EFFECTS,
         price = 129.99,
-        image = ""
+        image = "https://i.pinimg.com/564x/4b/32/dc/4b32dc488f6e10a0808998b19f8e28e2.jpg"
     ),
     Item(
         id = 4,

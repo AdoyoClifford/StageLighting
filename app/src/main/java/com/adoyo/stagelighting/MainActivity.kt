@@ -7,10 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.adoyo.stagelighting.data.Tab
-import com.adoyo.stagelighting.presentation.BottomBar
-import com.adoyo.stagelighting.presentation.MainScreen
-import com.adoyo.stagelighting.presentation.TopBar
 import com.adoyo.stagelighting.ui.theme.StageLightingTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,7 +22,9 @@ class MainActivity : ComponentActivity() {
                     // MainScreen(items = items, onItemClick = {})
                     //TopBar()
                    // BottomBar(selectedTab = Tab.Home, onSelectedTab = {})
-                    MainScreen()
+                    //MainScreen()
+                    Navigation()
+
 
                 }
             }

@@ -1,4 +1,4 @@
-package com.adoyo.stagelighting.presentation
+package com.adoyo.stagelighting.presentation.main_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,11 +16,11 @@ class MainViewModel: ViewModel() {
     private val _isSearching = MutableStateFlow(false)
     val isSearching = _isSearching.asStateFlow()
 
-    private val _persons = MutableStateFlow(allItems)
-    val persons = searchText
+    private val _items = MutableStateFlow(allItems)
+    val items = searchText
         .debounce(1000L)
         .onEach { _isSearching.update { true } }
-        .combine(_persons) { text, persons ->
+        .combine(_items) { text, persons ->
             if(text.isBlank()) {
                 persons
             } else {
@@ -34,27 +34,10 @@ class MainViewModel: ViewModel() {
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
-            _persons.value
+            _items.value
         )
 
     fun onSearchTextChange(text: String) {
         _searchText.value = text
-    }
-}
-
-data class Person(
-    val firstName: String,
-    val lastName: String
-) {
-    fun doesMatchSearchQuery(query: String): Boolean {
-        val matchingCombinations = listOf(
-            "$firstName$lastName",
-            "$firstName $lastName",
-            "${firstName.first()} ${lastName.first()}",
-        )
-
-        return matchingCombinations.any {
-            it.contains(query, ignoreCase = true)
-        }
     }
 }
