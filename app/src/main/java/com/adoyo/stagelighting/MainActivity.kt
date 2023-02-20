@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
                     //TopBar()
                    // BottomBar(selectedTab = Tab.Home, onSelectedTab = {})
                     MainScreen()
+
                 }
             }
         }
