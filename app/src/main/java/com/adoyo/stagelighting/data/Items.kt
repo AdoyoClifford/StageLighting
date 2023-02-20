@@ -1,6 +1,6 @@
 package com.adoyo.stagelighting.data
 
-val items = listOf(
+val allItems = listOf(
     Item(
         id = 1,
         name = "LED Moving Head Light",
@@ -52,7 +52,18 @@ data class Item(
     val category: Category,
     val price: Double,
     val image: String
-)
+) {
+    fun doesMatchSearchQuery(query: String): Boolean {
+        val matchingCombinations = listOf(
+            name,
+            "${name.first()}}",
+        )
+
+        return matchingCombinations.any {
+            it.contains(query, ignoreCase = true)
+        }
+    }
+}
 
 enum class Category(val label: String) {
     LIGHTING("Lighting"),
