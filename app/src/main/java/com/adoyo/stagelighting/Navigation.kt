@@ -4,19 +4,19 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.adoyo.stagelighting.presentation.details_screen.DetailsScreen
-import com.adoyo.stagelighting.presentation.main_screen.MainScreen
+import com.adoyo.stagelighting.feature_product.presentation.details.DataDetailsScreen
+import com.adoyo.stagelighting.feature_product.presentation.items.ItemsScreen
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screens.HomeScreen.route) {
-        composable(Screens.HomeScreen.route) {
-            MainScreen(navController = navController)
+    NavHost(navController = navController, startDestination = Screens.ItemsScreen.route) {
+        composable(Screens.ItemsScreen.route) {
+            ItemsScreen(navController = navController)
         }
 
-        composable(Screens.DetailScreen.route + "/{productId}") {
-            DetailsScreen()
+        composable(Screens.DataDetailsScreen.route + "/{itemId}") {
+            DataDetailsScreen()
         }
 
     }
