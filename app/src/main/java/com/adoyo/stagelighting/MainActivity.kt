@@ -3,12 +3,19 @@ package com.adoyo.stagelighting
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.adoyo.stagelighting.feature_product.presentation.items.ItemsScreen
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.adoyo.stagelighting.presentation.details_screen.DetailsScreen
+import com.adoyo.stagelighting.presentation.main_screen.MainScreen
 import com.adoyo.stagelighting.ui.theme.StageLightingTheme
+import com.adoyo.stagelighting.utils.Screens
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,21 +29,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
-
-                    // MainScreen(items = items, onItemClick = {})
-                    //TopBar()
-                   // BottomBar(selectedTab = Tab.Home, onSelectedTab = {})
-                    //MainScreen()
                     Navigation()
-
-
-
                 }
             }
         }
     }
 }
+
 
 
 
