@@ -1,40 +1,34 @@
 package com.adoyo.stagelighting.presentation.cart
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.adoyo.stagelighting.data.Item
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-
-
+import kotlinx.coroutines.launch
 
 class CartViewModel : ViewModel() {
+    private val _cartItems = MutableStateFlow(mutableListOf<CartItem>())
+    val cartItems: StateFlow<List<CartItem>> = _cartItems
 
-    private val _items = MutableStateFlow(emptyList<CartStateItem>())
-    val items: StateFlow<List<CartStateItem>> = _items
+    private val _cartCountItems = MutableStateFlow(0)
+    val cartCountItems: StateFlow<Int> = _cartCountItems
 
-    val total: Double
-        get() = _items.value.sumOf { it.quantity * it.item.price }
-
-    fun addItem(item: Item,quantity: Int) {
-        val existingItem = _items.value.find { it.item == item }
-        if (existingItem != null) {
-            existingItem.quantity++
-            _items.value = _items.value.toList()
-        } else {
-            _items.value = _items.value + CartStateItem(item, 1)
+    init {
+        viewModelScope.launch {
+            _cartItems.collect {
+                _cartCountItems.value = it.size
+                Log.d("CartViewModel", "Cart count items: ${_cartCountItems.value}")
+            }
         }
     }
 
-    fun removeItem(cartItem: CartStateItem) {
-        if (cartItem.quantity > 1) {
-            cartItem.quantity--
-            _items.value = _items.value.toList()
-        } else {
-            _items.value = _items.value - cartItem
-        }
+    fun increment() {
+        _cartCountItems.value++
     }
 
-    fun clear() {
-        _items.value = emptyList()
+    private fun resetCount() {
+        _cartCountItems.value = 0
     }
 }
