@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.adoyo.stagelighting.presentation.auth.login.LogIn
 import com.adoyo.stagelighting.presentation.details_screen.DetailsScreen
 import com.adoyo.stagelighting.presentation.main_screen.MainScreen
 import com.adoyo.stagelighting.ui.theme.StageLightingTheme
@@ -29,7 +30,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Navigation()
+                   // Navigation()
+                    LogIn()
                 }
             }
         }
