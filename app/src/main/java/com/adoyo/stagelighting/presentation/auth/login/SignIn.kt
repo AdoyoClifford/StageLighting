@@ -1,7 +1,5 @@
 package com.adoyo.stagelighting.presentation.auth.login
 
-import android.graphics.Paint.Style
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -15,7 +13,7 @@ import com.adoyo.stagelighting.ui.theme.AwesomeWhite
 import com.adoyo.stagelighting.ui.theme.DarkBlue
 
 @Composable
-fun LogIn() {
+fun SignIn() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -23,7 +21,7 @@ fun LogIn() {
     ) {
         Column {
             Text(
-                text = "Sign Up", style = TextStyle(
+                text = "Sign In", style = TextStyle(
                     fontSize = MaterialTheme.typography.h3.fontSize,
                     fontWeight = FontWeight.Bold, color = DarkBlue
                 )
@@ -83,60 +81,18 @@ fun LogIn() {
                         )
                     )
                 })
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = "Confirm Password", style = TextStyle(
-                    fontSize = MaterialTheme.typography.h5.fontSize,
-                    fontWeight = FontWeight(200), color = DarkBlue
-                )
-            )
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                modifier = Modifier.fillMaxWidth(),
-                placeholder = {
-                    Text(
-                        text = "Confirm Password",
-                        style = TextStyle(
-                            fontSize = MaterialTheme.typography.body1.fontSize,
-                            color = Color.Black.copy(alpha = 0.5f)
-                        )
-                    )
-                })
+
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue)
             ) {
                 Text(
-                    text = "Create Account", style = TextStyle(
+                    text = "Sign In", style = TextStyle(
                         fontSize = MaterialTheme.typography.h5.fontSize,
                         fontWeight = FontWeight(200), color = AwesomeWhite
                     )
                 )
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Spacer(modifier = Modifier.weight(1f))
-                Text(
-                    text = "Already have an account?", style = TextStyle(
-                        fontSize = MaterialTheme.typography.h6.fontSize,
-                        fontWeight = FontWeight(200)
-                    )
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                TextButton(onClick = { /*TODO*/ }) {
-                    Text(
-                        text = "Log In", style = TextStyle(
-                            fontSize = MaterialTheme.typography.h6.fontSize,
-                            fontWeight = FontWeight(200)
-                        )
-                    )
-
-                }
-                Spacer(modifier = Modifier.weight(1f))
             }
         }
     }
