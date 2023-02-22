@@ -8,6 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.adoyo.stagelighting.presentation.auth.login.SignInScreen
+import com.adoyo.stagelighting.presentation.auth.signup.SignUpScreen
 import com.adoyo.stagelighting.presentation.cart.CartViewModel
 import com.adoyo.stagelighting.presentation.details_screen.DetailsScreen
 import com.adoyo.stagelighting.presentation.main_screen.MainScreen
@@ -19,8 +21,15 @@ fun Navigation() {
     val cartViewModel = viewModel<CartViewModel>()
     NavHost(
         navController = navController,
-        startDestination = Screens.MainScreen.route
+        startDestination = Screens.SignUpScreen.route
     ) {
+        composable( Screens.SignUpScreen.route) {
+            SignUpScreen(navController)
+        }
+        composable( Screens.SignInScreen.route) {
+            SignInScreen()
+        }
+
         composable(Screens.MainScreen.route) {
             MainScreen(navController)
         }
@@ -31,9 +40,6 @@ fun Navigation() {
             backStackEntry.arguments?.getInt("itemId")?.let { itemId ->
                 DetailsScreen(navController,itemId)
             }
-        }
-        composable( Screens.SignUpScreen.route) {
-            SignUpScreen()
         }
     }
 }

@@ -9,11 +9,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.adoyo.stagelighting.ui.theme.AwesomeWhite
 import com.adoyo.stagelighting.ui.theme.DarkBlue
+import com.adoyo.stagelighting.utils.Screens
 
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -125,7 +127,7 @@ fun SignUpScreen() {
                     )
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                TextButton(onClick = { /*TODO*/ }) {
+                TextButton(onClick = { navController.navigate(Screens.SignInScreen.route) }) {
                     Text(
                         text = "Log In", style = TextStyle(
                             fontSize = MaterialTheme.typography.h6.fontSize,
