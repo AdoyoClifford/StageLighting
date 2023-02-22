@@ -1,5 +1,6 @@
 package com.adoyo.stagelighting.presentation.main_screen.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -13,10 +14,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.adoyo.stagelighting.presentation.main_screen.MainViewModel
+import com.adoyo.stagelighting.ui.theme.AweSomeGrey
+import com.adoyo.stagelighting.ui.theme.AwesomeWhite
 import com.adoyo.stagelighting.utils.Screens
 
 @Composable
@@ -28,13 +32,14 @@ fun TopBar(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp), contentAlignment = Alignment.Center
+            .padding(16.dp)
+            .background(AwesomeWhite), contentAlignment = Alignment.Center
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             OutlinedTextField(
                 value = searchText,
                 onValueChange = viewModel::onSearchTextChange,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().background(AweSomeGrey),
                 placeholder = { Text(text = "Search") },
                 singleLine = true,
                 leadingIcon = {
@@ -67,7 +72,8 @@ fun TopBar(navController: NavController) {
                     )
                 }
             } else {
-                LazyVerticalGrid(columns = GridCells.Fixed(2)) {
+                LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.background(
+                    AwesomeWhite)) {
                     items(items) { item ->
                         ItemCard(item = item, onClick = {
                             navController.navigate(Screens.DetailScreen.route + "/${item.id}")

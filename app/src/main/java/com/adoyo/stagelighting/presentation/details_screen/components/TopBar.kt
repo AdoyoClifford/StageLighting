@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -19,11 +20,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.adoyo.stagelighting.ui.theme.AweSomeGrey
+import com.adoyo.stagelighting.ui.theme.AwesomeBlue
 import com.adoyo.stagelighting.ui.theme.AwesomeGreen
 import com.adoyo.stagelighting.ui.theme.AwesomeWhite
 
 @Composable
-fun DetailsTopBar(onBack: () -> Unit) {
+fun DetailsTopBar(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -31,10 +35,10 @@ fun DetailsTopBar(onBack: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(
-            onClick = { onBack() },
+            onClick = { navController.popBackStack() },
             modifier = Modifier
-                .clip(CircleShape)
-                .background(AwesomeGreen)
+                .clip(RoundedCornerShape(4.dp))
+                .background(AweSomeGrey)
         ) {
             Icon(Icons.Filled.ChevronLeft, contentDescription = "Back", tint = Color.Black)
         }

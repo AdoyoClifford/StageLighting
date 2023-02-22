@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 
 
 private val LightColorPalette = lightColors(
-    primary = AwesomeGreen,
+    primary = AwesomeBlue,
     primaryVariant = AwesomeBlue,
     secondary = AwesomeGreen,
     background = AwesomeWhite,
@@ -31,8 +31,8 @@ fun StageLightingTheme(
     content: @Composable () -> Unit
 ) {
     MaterialTheme(
-        colors = colors,
-        typography = Typography,
+        colors = LightColorPalette,
+        typography = stageTypography,
         shapes = Shapes,
         content = content
     )

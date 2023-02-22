@@ -10,19 +10,70 @@ import com.adoyo.stagelighting.R
 
 // Set of Material typography styles to start with
 private val avenir = FontFamily(
-    listOf(
-        Font(
-            resId = R.font.avenir_bold,
-            weight = FontWeight.Bold
-        ),
-        Font(
-            resId = R.font.avenir_regular,
-            weight = FontWeight.Medium
-        ),
-        Font(
-            resId = R.font.avenir_light,
-            weight = FontWeight.Light
-        ),
+    Font(
+        resId = R.font.avenir_bold,
+        weight = FontWeight.Bold
+    ),
+    Font(
+        resId = R.font.avenir_regular,
+        weight = FontWeight.Medium
+    ),
+    Font(
+        resId = R.font.avenir_light,
+        weight = FontWeight.Light
+    ),
+
+    )
+
+val stageTypography = Typography(
+    h4 = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W600,
+        fontSize = 30.sp
+    ),
+    h5 = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W600,
+        fontSize = 24.sp
+    ),
+    h6 = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W600,
+        fontSize = 20.sp
+    ),
+    subtitle1 = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W600,
+        fontSize = 16.sp
+    ),
+    subtitle2 = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp
+    ),
+    body1 = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    ),
+    body2 = TextStyle(
+        fontFamily = avenir,
+        fontSize = 14.sp
+    ),
+    button = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp
+    ),
+    caption = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp
+    ),
+    overline = TextStyle(
+        fontFamily = avenir,
+        fontWeight = FontWeight.W500,
+        fontSize = 12.sp
     )
 )
 
