@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "299082760048",
+    "firebase_url": "https://stagelighting-4d8cd-default-rtdb.firebaseio.com",
+    "project_id": "stagelighting-4d8cd",
+    "storage_bucket": "stagelighting-4d8cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299082760048:android:5ace7d2fdf795507c199b5",
+        "android_client_info": {
+          "package_name": "com.adoyo.stagelighting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299082760048-tvg4knso4dtbf82bn70qnjf1ke3hggc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adoyo.stagelighting",
+            "certificate_hash": "1b5811762fe23d99b015caa3986a4955ab585167"
+          }
+        },
+        {
+          "client_id": "299082760048-tnh082r3hi7nsmmh1fobemhbgkdbjd1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPDhuDcpS1ECfeLdeSUmrkK-rSe9iIklo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299082760048-tnh082r3hi7nsmmh1fobemhbgkdbjd1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
