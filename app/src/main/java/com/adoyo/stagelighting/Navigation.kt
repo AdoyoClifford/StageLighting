@@ -31,7 +31,9 @@ fun Navigation() {
             backStackEntry.arguments?.getInt("itemId")?.let { itemId ->
                 DetailsScreen(navController,itemId)
             }
-
+        }
+        composable( Screens.SignUpScreen.route) {
+            SignUpScreen()
         }
     }
 }
