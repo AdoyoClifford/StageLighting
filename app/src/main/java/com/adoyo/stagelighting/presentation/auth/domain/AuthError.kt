@@ -1,4 +1,4 @@
-package com.adoyo.stagelighting.presentation.auth.model
+package com.adoyo.stagelighting.presentation.auth.domain
 
 sealed class AuthError {
     object InvalidCredentials : AuthError()
