@@ -1,19 +1,26 @@
-package com.adoyo.stagelighting.presentation.auth.login
+package com.adoyo.stagelighting.presentation.auth.presentation.login
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.adoyo.stagelighting.presentation.auth.presentation.AuthViewModel
 import com.adoyo.stagelighting.ui.theme.AwesomeWhite
 import com.adoyo.stagelighting.ui.theme.DarkBlue
 
 @Composable
-fun SignInScreen() {
+fun SignInScreen(authViewModel: AuthViewModel = hiltViewModel()) {
+    val email by authViewModel.email
+    val password by authViewModel.password
+    //val authState by authViewModel
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -28,32 +35,14 @@ fun SignInScreen() {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "Name", style = TextStyle(
-                    fontSize = MaterialTheme.typography.h5.fontSize,
-                    fontWeight = FontWeight(200), color = DarkBlue
-                )
-            )
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                modifier = Modifier.fillMaxWidth(),
-                placeholder = {
-                    Text(
-                        text = "First Name", style = TextStyle(
-                            fontSize = MaterialTheme.typography.body1.fontSize,
-                            color = Color.Black.copy(alpha = 0.5f)
-                        )
-                    )
-                })
-            Text(
                 text = "Email", style = TextStyle(
                     fontSize = MaterialTheme.typography.h5.fontSize,
                     fontWeight = FontWeight(200), color = DarkBlue
                 )
             )
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = authViewModel.email.value,
+                onValueChange = { authViewModel.onEmailChange(it) },
                 modifier = Modifier.fillMaxWidth(),
                 placeholder = {
                     Text(
@@ -70,8 +59,8 @@ fun SignInScreen() {
                 )
             )
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = authViewModel.password.value,
+                onValueChange = { authViewModel.onPasswordChange(it) },
                 modifier = Modifier.fillMaxWidth(),
                 placeholder = {
                     Text(
@@ -84,7 +73,12 @@ fun SignInScreen() {
 
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {
+                    authViewModel.signIn(
+                        authViewModel.email.value,
+                        authViewModel.password.value
+                    )
+                },
                 colors = ButtonDefaults.buttonColors(backgroundColor = DarkBlue)
             ) {
                 Text(

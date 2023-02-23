@@ -2,6 +2,7 @@ package com.adoyo.stagelighting.presentation.auth.di
 
 import com.adoyo.stagelighting.presentation.auth.data.repository.AuthRepositoryImplementation
 import com.adoyo.stagelighting.presentation.auth.domain.repository.AuthRepository
+import com.adoyo.stagelighting.presentation.auth.domain.use_cases.AuthUseCase
 import com.adoyo.stagelighting.presentation.auth.presentation.AuthViewModel
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
@@ -25,7 +26,7 @@ object AuthModule {
     }
 
     @Provides
-    fun provide authUseCase(authRepository: AuthRepository): AuthUseCase {
+    fun provideAuthUseCase(authRepository: AuthRepository): AuthUseCase {
         return AuthUseCase(authRepository)
     }
 

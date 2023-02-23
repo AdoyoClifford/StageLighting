@@ -1,4 +1,4 @@
-package com.adoyo.stagelighting.presentation.auth.signup
+package com.adoyo.stagelighting.presentation.auth.presentation.signup
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
