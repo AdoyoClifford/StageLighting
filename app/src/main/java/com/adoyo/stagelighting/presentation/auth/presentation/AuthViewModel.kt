@@ -22,6 +22,9 @@ class AuthViewModel @Inject constructor(private val authUseCase: AuthUseCase): V
     private val _signUpResult = MutableStateFlow<Resource<User>>(Resource.Loading())
     val signUpResult: StateFlow<Resource<User>> = _signUpResult
 
+    private val _authState = MutableStateFlow<Resource<User>>(Resource.Loading())
+    val authState: StateFlow<Resource<User>> = _authState
+
     private val _email = mutableStateOf("")
     val email = _email
 
@@ -36,12 +39,20 @@ class AuthViewModel @Inject constructor(private val authUseCase: AuthUseCase): V
         _password.value = password
     }
 
-    fun signIn(email: String,password: String) = viewModelScope.launch {
-        _signUpResult.value = Resource.Loading()
-        val result = authUseCase.signIn(email,password)
-        _signUpResult.value = result
-    }
+//    fun signIn(email: String,password: String) = viewModelScope.launch {
+//        _signUpResult.value = Resource.Loading()
+//        val result = authUseCase.signIn(email,password)
+//        _signUpResult.value = result
+//    }
 
+
+    fun signIn() {
+        viewModelScope.launch {
+            _authState.value = Resource.Loading()
+            val result = authUseCase.signIn(email.value, password.value)
+            _authState.value = when (result)
+        }
+    }
     fun signUp(email: String, password: String) = viewModelScope.launch {
         _signUpResult.value = Resource.Loading()
         val result = authUseCase.signUp(email,password)

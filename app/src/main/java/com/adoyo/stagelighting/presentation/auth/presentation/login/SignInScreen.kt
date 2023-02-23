@@ -3,7 +3,6 @@ package com.adoyo.stagelighting.presentation.auth.presentation.login
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -11,16 +10,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.adoyo.stagelighting.presentation.auth.presentation.AuthViewModel
 import com.adoyo.stagelighting.ui.theme.AwesomeWhite
 import com.adoyo.stagelighting.ui.theme.DarkBlue
 
 @Composable
 fun SignInScreen(authViewModel: AuthViewModel = hiltViewModel()) {
-    val email by authViewModel.email
-    val password by authViewModel.password
-    //val authState by authViewModel
     Box(
         modifier = Modifier
             .fillMaxSize()
