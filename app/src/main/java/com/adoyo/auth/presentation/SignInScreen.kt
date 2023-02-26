@@ -124,7 +124,7 @@ fun SignInContent(navController: NavController,auth: FirebaseAuth,orSignUp: () -
             auth.signInWithEmailAndPassword(emailState.text, passwordState.text)
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
-                       // navController.navigate(Screens.HomeScreen.route)
+                        navController.navigate(Screens.MainScreen.route)
                     } else {
                         Log.d("AUTH-FIREBASE",task.exception.toString())
                         // If sign in fails, display a message to the user.

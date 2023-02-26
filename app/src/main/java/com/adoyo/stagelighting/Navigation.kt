@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.adoyo.auth.presentation.SignInScreen
+import com.adoyo.auth.presentation.SignUpScreen
 import com.adoyo.auth.presentation.SplashScreen
 import com.adoyo.stagelighting.presentation.cart.CartViewModel
 import com.adoyo.stagelighting.presentation.details_screen.DetailsScreen
@@ -29,11 +30,18 @@ fun Navigation() {
         navController = navController,
         startDestination = Screens.SplashScreen.route
     ) {
-        composable( Screens.SplashScreen.route) {
+        composable(Screens.SplashScreen.route) {
             SplashScreen(navController = navController)
         }
-        composable( Screens.SignInScreen.route) {
-            SignInScreen(auth = auth,navController,{})
+        composable(Screens.SignInScreen.route) {
+            SignInScreen(
+                auth = auth,
+                navController
+            ) { }
+        }
+
+        composable(Screens.SignUpScreen.route) {
+            SignUpScreen(navController,auth) {}
         }
 
         composable(Screens.MainScreen.route) {
@@ -44,7 +52,7 @@ fun Navigation() {
             arguments = listOf(navArgument("itemId") { type = NavType.IntType })
         ) { backStackEntry ->
             backStackEntry.arguments?.getInt("itemId")?.let { itemId ->
-                DetailsScreen(navController,itemId)
+                DetailsScreen(navController, itemId)
             }
         }
     }
